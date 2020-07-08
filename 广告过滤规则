@@ -1,0 +1,68 @@
+# 规则1
+Easylist
+官方规则
+https://easylist.to/easylist/easylist.txt
+
+
+Easylistchina
+中文补充规则
+https://easylist-downloads.adblockplus.org/easylistchina.txt
+
+
+EasyList Lite
+中文精简规则
+https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt
+
+
+
+CJX Annoyance
+去自我推广列表
+https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+
+
+
+NeoHosts
+国内屏蔽挖矿统计 JS&360 & 百度 & 劫持 & 反感激进内容等
+https://hosts.nfz.moe/full/hosts
+
+
+EasyPrivacy
+隐私保护
+https://easylist-downloads.adblockplus.org/easyprivacy.txt
+
+
+AdblockPlus
+官方规则
+https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/ABP-FX.txt
+
+
+
+
+ChinaListV2.0 ：国内大部分视频网站的广告过滤
+http://tools.yiclear.com/ChinaList2.0.txt
+
+
+Fanboy+Easylist-Merged Ultimate List
+https://fanboy.co.nz/r/fanboy-ultimate.txt
+
+
+# 规则2
+EasyList China   国内网站广告过滤的主规则
+https://www.runningcheese.com/go?url=https://easylist-downloads.adblockplus.org/easylistchina.txt
+
+EasyPrivacy  隐私保护，不被跟踪
+https://www.runningcheese.com/go?url=https://easylist-downloads.adblockplus.org/easyprivacy.txt
+
+CJX's Annoyance List 过滤烦人的自我推广，并补充EasyPrivacy隐私规则
+https://www.runningcheese.com/go?url=https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+
+
+广告净化器规则 国内大部分视频网站的广告过滤
+https://www.runningcheese.com/go?url=http://tools.yiclear.com/ChinaList2.0.txt
+
+anti-AD  文区命中率最高的广告过滤列表
+https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
+或
+https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-easylist.txt
+
+
