@@ -76,6 +76,7 @@ https://github.com/HTSMAIL/lede
    ```
 
 5.下载dl库（国内请尽量全局科学上网）
+        
         make -j8 download V=s
 
 
@@ -112,6 +113,7 @@ make -j$(($(nproc) + 1)) V=s
 功能参照表
 -
 https://github.com/HTSMAIL/Openwrt20git-step/blob/master/%E5%8A%9F%E8%83%BD%E5%8F%82%E7%85%A7
+
 广告过滤规则
 -
 https://github.com/HTSMAIL/Openwrt20git-step/blob/master/%E5%B9%BF%E5%91%8A%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99
