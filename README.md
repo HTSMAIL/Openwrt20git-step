@@ -42,7 +42,9 @@ https://github.com/HTSMAIL/lede
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf
 `
 
-3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后 `cd lede` 进入目录
+3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后  进入目录
+
+`cd lede`
 
         vi feeds.conf.default
 推荐下面的软件包，几乎涵盖了你需要插件
@@ -102,7 +104,99 @@ make -j$(($(nproc) + 1)) V=s
 
 编译完成后输出路径：/lede/bin/targets
 
+功能参照表
+-
+
+
 你可以自由使用，但源码编译二次发布请注明L大的 GitHub 仓库链接。谢谢合作！
 =  
 采用L大的源码，仓库地址
 https://github.com/HTSMAIL/lede
+
+上下键选择项目，左右键选择退出保存等。
+输入 Y 选择该项目加入固件，N 不选泽，M 编译但不合入固件。
+所有项目选完后保存再退出。保存时可以重命名，但只起保存当前配置的作用，编译有效的配置文件名还是 .config。
+进入 menuconfig 第一眼感觉好复杂，不是专业的根本不知道都是啥，不过我们编译自己的固件不需要知道那么多，大多数默认设置就好了。
+
+    Target System (x86) ---> #设置CPU类型（软路由所以选择x86,硬路由根据型号厂家选择自己的cpu)
+
+    Subtarget (x86_64) ---> #CPU子选项
+
+    Target Profile (Generic) ---> #厂家具体型号
+
+    Target Images ---> #设置编译的格式（squashfs，ext4）
+
+    Global build settings ---> #全局设置
+
+    [ ] Advanced configuration options (for developers) ---- #高级配置选项
+
+    [ ] Build the OpenWrt Image Builder #创建OpenWrt镜像生成器
+
+    [ ] Build the OpenWrt SDK #创建OpenWrt SDK
+
+    [ ] Package the OpenWrt-based Toolchain #打包基于OpenWrt的工具链
+
+    [ ] Image configuration ---> #镜像配置
+
+    Base system ---> #设置基础系统
+
+    Administration ---> #管理
+
+    Boot Loaders ---> #设置启动加载器
+
+    Development --->
+
+    Extra packages ---> #设置额外软件包
+
+    Firmware ---> #设置固件
+
+    Fonts --->　#设置字体
+
+    Kernel modules ---> #设置一些接口模块，如LED，i2c，spi等
+
+    Languages ---> #设置语言，如go，lua，node.js，php，Python等等
+
+    Libraries ---> #设置库
+
+    LuCI ---> #LuCi设置（这里重点开始选择- 3. Applications ->进去编译选择“y”，取消选“n”,说明在下边链接 ）
+
+        1. collections luCI HTTPS支持 
+
+        2. modules 模块，选中 Minify Lua Sources 压缩 Lua 脚本可增大固件中的可用空间
+
+        3. applications 应用
+
+        4. themes 主题
+
+        5. protocols 支持协议
+
+        6. libraries 支持docker json等库
+
+        9. freifunk 社区产品
+
+    Mail ---> mail 相关软件，协议等
+
+    Multimedia ---> #设置多媒体，如FFmpeg
+
+    Network ---> #网络配置，如bittorrent，firewall，download manager，VPN，ssh等等
+
+    Sound ---> #声音配置
+
+    Utilities ---> #设置实用程序
+
+    Xorg ---> #字体配置
+
+  拿 EA6500 v2 路由来做例子：
+
+    Target System --> Broadcom BCM47xx/53xx(ARM)
+
+    Target Profile --> Multiple devices
+
+    Target Devices --> Linksys EA6500 V2
+
+    Target Images --> squashfs
+
+
+    LuCI --> 3. Applications --> 选择需要的插件，根据路由器的 flash 大小
+    --> 4. Themes --> 默认就好，有的主题体积会比较大
+
