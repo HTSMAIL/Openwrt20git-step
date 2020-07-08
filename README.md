@@ -32,14 +32,39 @@ https://github.com/HTSMAIL/lede
 -
 1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64
 
-2. 命令行输入 `sudo apt-get update` 
+2. 命令行输入 
 
-然后输入
+`sudo apt-get update` 
+
+然后安装依赖输入
+
 `
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf
 `
 
 3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后 `cd lede` 进入目录
+
+        vi feeds.conf.default
+推荐下面的软件包，几乎涵盖了你需要插件
+
+        src-git kenzo https://github.com/V2RaySSR/openwrt-packages
+        src-git small https://github.com/V2RaySSR/small
+
+        openwrt 固件编译自定义主题与软件
+        luci-app-openclash ——————openclash图形
+        luci-app-advancedsetting ——————系统高级设置
+        luci-theme-atmaterial ——————atmaterial 三合一主题（适配18.06）
+        luci-app-aliddns ——————阿里云ddns
+        luci-theme-argon-dark-new——————适配19.07与18.06的主题
+        luci-app-eqos ——————依IP地址限速
+        luci-app-gost ——————隐蔽的https代理
+        luci-app-adguardhome ——————去广告
+        luci-app-smartdns ——————smartdns防污染
+        luci-app-passwall ——————Lienol大神
+        luci-theme-argon_new ——————适配19.07与18.06的主题
+        luci-app-ssr-plus ——————Lean大神
+        luci-theme-opentomcat ——————修复主机名错误（适配18.06）
+        luci-theme-opentomato ——————修复主机名错误（适配18.06）
 
 4. ```bash
    ./scripts/feeds update -a
