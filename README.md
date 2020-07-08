@@ -76,10 +76,13 @@ https://github.com/HTSMAIL/lede
    ```
 
 5.下载dl库（国内请尽量全局科学上网）
-`make -j8 download V=s` 
+        make -j8 download V=s
 
 
-6. 输入 `make -j1 V=s` （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
+6. 
+        
+        make -j1 V=s  
+（-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
 
 本套代码保证肯定可以编译成功。里面包括了 R20 所有源代码，包括 IPK 的。
 
@@ -108,7 +111,10 @@ make -j$(($(nproc) + 1)) V=s
 
 功能参照表
 -
-
+https://github.com/HTSMAIL/Openwrt20git-step/blob/master/%E5%8A%9F%E8%83%BD%E5%8F%82%E7%85%A7
+广告过滤规则
+-
+https://github.com/HTSMAIL/Openwrt20git-step/blob/master/%E5%B9%BF%E5%91%8A%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99
 
 你可以自由使用，但源码编译二次发布请注明L大的 GitHub 仓库链接。谢谢合作！
 =  
