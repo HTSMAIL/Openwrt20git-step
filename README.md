@@ -54,6 +54,10 @@ https://github.com/HTSMAIL/lede
 
         src-git kenzo https://github.com/V2RaySSR/openwrt-packages
         src-git small https://github.com/V2RaySSR/small
+        
+        备用地址
+       src-git https://github.com/HTSMAIL/openwrt-packages
+       src-git https://github.com/HTSMAIL/small
 
         openwrt 固件编译自定义主题与软件
         luci-app-openclash ——————openclash图形
