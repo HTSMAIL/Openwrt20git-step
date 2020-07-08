@@ -34,18 +34,19 @@ https://github.com/HTSMAIL/lede
 
 2. 命令行输入 
 
-`sudo apt-get update` 
+        sudo apt-get update 
 
 然后安装依赖输入
 
-`
-sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf
-`
+       sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf
 
-3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后  进入目录
 
-`cd lede`
+3. 使用 `git` 命令下载好源代码，然后  进入目录
+        
+        git clone https://github.com/coolsnowwolf/lede
 
+        cd lede
+修改源
         vi feeds.conf.default
 推荐下面的软件包，几乎涵盖了你需要插件
 
@@ -74,7 +75,8 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
    make menuconfig
    ```
 
-5. `make -j8 download V=s` 下载dl库（国内请尽量全局科学上网）
+5.下载dl库（国内请尽量全局科学上网）
+`make -j8 download V=s` 
 
 
 6. 输入 `make -j1 V=s` （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
