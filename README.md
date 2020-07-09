@@ -52,9 +52,8 @@ https://github.com/HTSMAIL/lede
         vi feeds.conf.default
 推荐下面的软件包，几乎涵盖了你需要插件
 
-src-git kenzo https://github.com/V2RaySSR/openwrt-packages
-
-src-git small https://github.com/V2RaySSR/small
+`src-git kenzo https://github.com/V2RaySSR/openwrt-packages
+ src-git small https://github.com/V2RaySSR/small'
         
         备用地址
        src-git https://github.com/HTSMAIL/openwrt-packages
