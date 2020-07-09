@@ -78,9 +78,9 @@ src-git small https://github.com/V2RaySSR/small
         luci-theme-opentomato ——————修复主机名错误（适配18.06）
 
 4. ```bash
-   ./scripts/feeds update -a
-   ./scripts/feeds install -a
-   make menuconfig
+./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
    ```
 
 5.下载dl库（国内请尽量全局科学上网）
