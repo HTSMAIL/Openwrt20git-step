@@ -44,8 +44,6 @@ https://github.com/HTSMAIL/lede
 3. 使用 `git` 命令下载好源代码，然后  进入目录
         
         git clone https://github.com/coolsnowwolf/lede
-        
-        或者‘git clone https://github.com/HTSMAIL/lede’
 
         cd lede
 
