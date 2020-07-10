@@ -12,7 +12,7 @@
 
 #改网口地址（默认网关ip）
 
-        vim /etc/comfig/network
+        vim /etc/config/network
 
 火力全开
 
