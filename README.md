@@ -48,8 +48,10 @@ https://github.com/HTSMAIL/lede
         或者‘git clone https://github.com/HTSMAIL/lede’
 
         cd lede
-修改源
+
         vi feeds.conf.default
+
+修改源
 推荐下面的软件包，几乎涵盖了你需要插件
 
 ```bash
