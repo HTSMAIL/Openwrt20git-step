@@ -44,9 +44,7 @@ https://github.com/HTSMAIL/lede
 3. 使用 `git` 命令下载好源代码，然后  进入目录
         
         git clone https://github.com/coolsnowwolf/lede
-
         cd lede
-
         vi feeds.conf.default
 
 修改源
