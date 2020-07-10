@@ -10,6 +10,10 @@
     #输入指令
     sudo qemu-img convert -f raw openwrt-xxx.img -O vmdk openwrt-xxx.vmdk
 
+#改网口地址（默认网关ip）
+
+        vim /etc/comfig/network
+
 火力全开
 
      #一键起飞编译方法
