@@ -5,9 +5,9 @@
 speedtest终端测速
 -
 
-      git clone https://github.com/sivel/speedtest-cli.git 安装测速脚本
-      cd speedtest-cli        cd脚本
-      python speedtest.py    运行测速
+      git clone https://github.com/sivel/speedtest-cli.git 
+      cd speedtest-cli        
+      python speedtest.py    
       
 移动文件
 -
