@@ -109,7 +109,7 @@ make -j$(($(nproc) + 1)) V=s
 
 如果需要重新配置：
 ```bash
-rm -rf ./tmp && rm -rf .config
+rm -rf ./tmp && rm -rf .config && rm -rf bin
 make menuconfig
 make -j$(($(nproc) + 1)) V=s
 ```
