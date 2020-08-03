@@ -87,8 +87,8 @@ make menuconfig
 
 5.下载dl库（国内请尽量全局科学上网）
         
-        make -j8 download V=s
-        make -j1 V=s  
+    make -j8 download V=s
+    make -j1 V=s  
 6. （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
 
 本套代码保证肯定可以编译成功。里面包括了 R20 所有源代码，包括 IPK 的。
