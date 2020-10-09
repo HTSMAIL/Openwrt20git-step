@@ -92,3 +92,132 @@ opnwrt固件源码修改默认IP也很简单
 package/base-files/files/bin/config_generate文件文本方式打开
 
 搜索192.168.1.1就找到位置了，时区也在该文件里 不会就用正常使用的路由配置文件对比修改(照葫芦画瓢)就好了
+
+
+openwrt默认主题为luci-theme-bootstrap，可在web界面进行修改，也可直接在代码中修改配置信息，默认自己的主题
+
+修改前：openwrt默认luci主题luci-theme-bootstrap
+
+ .config - OpenWrt Configuration
+ > LuCI > 4. Themes ──────────────────────────────────────────────────────────────────────────────
+  ┌──────────────────────────────────────── 4. Themes ─────────────────────────────────────────┐
+  │  Arrow keys navigate the menu.  <Enter> selects submenus ---> (or empty submenus ----).    │  
+  │  Highlighted letters are hotkeys.  Pressing <Y> includes, <N> excludes, <M> modularizes    │  
+  │  features.  Press <Esc><Esc> to exit, <?> for Help, </> for Search.  Legend: [*] built-in  │  
+  │  [ ] excluded  <M> module  < > module capable                                              │  
+  │ ┌────────────────────────────────────────────────────────────────────────────────────────┐ │  
+  │ │         <*> luci-theme-argon............................................. Argon Theme  │ │  
+  │ │         -*- luci-theme-bootstrap........................... Bootstrap Theme (default)  │ │  
+  │ │         < > luci-theme-material....................................... Material Theme  │ │  
+  │ │         < > luci-theme-openwrt................................ LuCI OpenWrt.org theme  │ │  
+  │ │                                                                                        │ │  
+  │ │                                                                                        │ │  
+  │ │                                                                                        │ │  
+  │ └────────────────────────────────────────────────────────────────────────────────────────┘ │  
+  ├────────────────────────────────────────────────────────────────────────────────────────────┤  
+  │                  <Select>    < Exit >    < Help >    < Save >    < Load >                  │  
+  └────────────────────────────────────────────────────────────────────────────────────────────┘  
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+进入路径openwrt/feeds/luci/collections/luci，修改Makefile（适用于openwrt版本19.07,不同的版本，会稍微不同）
+将LUCI_DESCRIPTION中，bootstrap 替换为 argon
+将LUCI_DEPENDS中，+luci-theme-bootstrap 替换为 +luci-theme-argon
+
+include $(TOPDIR)/rules.mk
+
+LUCI_TYPE:=col
+LUCI_BASENAME:=luci
+
+LUCI_TITLE:=LuCI interface with Uhttpd as Webserver (default)
+LUCI_DESCRIPTION:=Standard OpenWrt set including full admin with ppp support and the default argon theme
+LUCI_DEPENDS:= \
+	+uhttpd +luci-mod-admin-full +luci-theme-argon \
+	+luci-app-firewall +luci-app-opkg +luci-proto-ppp +libiwinfo-lua +IPV6:luci-proto-ipv6 \
+	+rpcd-mod-rrdns
+
+PKG_LICENSE:=Apache-2.0
+
+include ../../luci.mk
+
+# call BuildPackage - OpenWrt buildroot signature
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+保存，重新进入menuconfig
+
+此时默认luci主题已经更改为luci-theme-argon
+
+ .config - OpenWrt Configuration
+ 
+ 
+ > LuCI > 4. Themes ─────────────────────────────────────────────────────────────────────────
+  ┌────────────────────────────────────── 4. Themes ──────────────────────────────────────┐
+  │  Arrow keys navigate the menu.  <Enter> selects submenus ---> (or empty submenus      │  
+  │  ----).  Highlighted letters are hotkeys.  Pressing <Y> includes, <N> excludes, <M>   │  
+  │  modularizes features.  Press <Esc><Esc> to exit, <?> for Help, </> for Search.       │  
+  │  Legend: [*] built-in  [ ] excluded  <M> module  < > module capable                   │  
+  │ ┌───────────────────────────────────────────────────────────────────────────────────┐ │  
+  │ │      -*- luci-theme-argon............................................. Argon Theme│ │  
+  │ │      <*> luci-theme-bootstrap........................... Bootstrap Theme (default)│ │  
+  │ │      < > luci-theme-material....................................... Material Theme│ │  
+  │ │      < > luci-theme-openwrt................................ LuCI OpenWrt.org theme│ │  
+  │ │                                                                                   │ │  
+  │ │                                                                                   │ │  
+  │ │                                                                                   │ │  
+  │ └───────────────────────────────────────────────────────────────────────────────────┘ │  
+  ├───────────────────────────────────────────────────────────────────────────────────────┤  
+  │               <Select>    < Exit >    < Help >    < Save >    < Load >                │  
+  └───────────────────────────────────────────────────────────────────────────────────────┘  
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+仅此记录
