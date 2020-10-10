@@ -136,6 +136,31 @@ set wireless.default_radio${devidx}.ssid=OpenWrt_$(cat /sys/class/ieee80211/${de
 17
 18
 19
+ 
+ 
+ 
+ 	> LuCI > 4. Themes ─────────────────────────────────────────────────────────────────────────
+  ┌────────────────────────────────────── 4. Themes ──────────────────────────────────────┐
+  │  Arrow keys navigate the menu.  <Enter> selects submenus ---> (or empty submenus      │  
+  │  ----).  Highlighted letters are hotkeys.  Pressing <Y> includes, <N> excludes, <M>   │  
+  │  modularizes features.  Press <Esc><Esc> to exit, <?> for Help, </> for Search.       │  
+  │  Legend: [*] built-in  [ ] excluded  <M> module  < > module capable                   │  
+  │ ┌───────────────────────────────────────────────────────────────────────────────────┐ │  
+  │ │      -*- luci-theme-argon............................................. Argon Theme│ │  
+  │ │      <*> luci-theme-bootstrap........................... Bootstrap Theme (default)│ │  
+  │ │      < > luci-theme-material....................................... Material Theme│ │  
+  │ │      < > luci-theme-openwrt................................ LuCI OpenWrt.org theme│ │  
+  │ │                                                                                   │ │  
+  │ │                                                                                   │ │  
+  │ │                                                                                   │ │  
+  │ └───────────────────────────────────────────────────────────────────────────────────┘ │  
+  ├───────────────────────────────────────────────────────────────────────────────────────┤  
+  │               <Select>    < Exit >    < Help >    < Save >    < Load >                │  
+  └───────────────────────────────────────────────────────────────────────────────────────┘  
+
+仅此记录
+
+		
 		进入路径openwrt/feeds/luci/collections/luci，修改Makefile（适用于openwrt版本19.07,不同的版本，会稍微不同）
 
 		将LUCI_DESCRIPTION中，bootstrap 替换为 argon
@@ -181,46 +206,3 @@ include ../../luci.mk
 
 			 .config - OpenWrt Configuration
  
- 
- 
- 
- 	> LuCI > 4. Themes ─────────────────────────────────────────────────────────────────────────
-  ┌────────────────────────────────────── 4. Themes ──────────────────────────────────────┐
-  │  Arrow keys navigate the menu.  <Enter> selects submenus ---> (or empty submenus      │  
-  │  ----).  Highlighted letters are hotkeys.  Pressing <Y> includes, <N> excludes, <M>   │  
-  │  modularizes features.  Press <Esc><Esc> to exit, <?> for Help, </> for Search.       │  
-  │  Legend: [*] built-in  [ ] excluded  <M> module  < > module capable                   │  
-  │ ┌───────────────────────────────────────────────────────────────────────────────────┐ │  
-  │ │      -*- luci-theme-argon............................................. Argon Theme│ │  
-  │ │      <*> luci-theme-bootstrap........................... Bootstrap Theme (default)│ │  
-  │ │      < > luci-theme-material....................................... Material Theme│ │  
-  │ │      < > luci-theme-openwrt................................ LuCI OpenWrt.org theme│ │  
-  │ │                                                                                   │ │  
-  │ │                                                                                   │ │  
-  │ │                                                                                   │ │  
-  │ └───────────────────────────────────────────────────────────────────────────────────┘ │  
-  ├───────────────────────────────────────────────────────────────────────────────────────┤  
-  │               <Select>    < Exit >    < Help >    < Save >    < Load >                │  
-  └───────────────────────────────────────────────────────────────────────────────────────┘  
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-仅此记录
