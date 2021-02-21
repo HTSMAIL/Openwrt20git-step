@@ -56,7 +56,7 @@ https://github.com/HTSMAIL/lede
 
 ```bash
 src-git kenzo https://github.com/HTSMAIL/openwrt-packages
-src-git small https://github.com/V2RaySSR/small
+src-git small https://github.com/HTSMAIL/small
     ```
         
         备用地址
