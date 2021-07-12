@@ -55,8 +55,8 @@ https://github.com/HTSMAIL/lede
 推荐下面的软件包，几乎涵盖了你需要插件
 
 ```bash
-src-git kenzo https://github.com/HTSMAIL/openwrt-packages
-src-git small https://github.com/HTSMAIL/small
+src-git kenzo https://github.com/kenzok8/openwrt-packages
+src-git small https://github.com/kenzok8/small
     ```
         
         备用地址
