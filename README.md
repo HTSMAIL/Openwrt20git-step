@@ -23,7 +23,8 @@
 采用L大的源码，仓库地址
 https://github.com/HTSMAIL/lede
 
-# 编译好的固件：点击链接加入群聊【编译-软/硬路由-储存站】：https://jq.qq.com/?_wv=1027&k=kvcPp7K8
+# 编译好的固件：点击链接加入群聊【编译-软/硬路由-储存站】：
+https://jq.qq.com/?_wv=1027&k=kvcPp7K8
 
 #教程内容：
 中文：如何编译自己需要的 OpenWrt 固件
