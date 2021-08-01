@@ -18,7 +18,8 @@
 
      #一键起飞编译方法
     make V=99 -j 96  
-
+    #主题单独编译
+    make package/luci-theme-argon_new/compile V=99
 # 以lede为例自定义一个自己的专属wrt固件
 采用L大的源码，仓库地址
 https://github.com/HTSMAIL/lede
