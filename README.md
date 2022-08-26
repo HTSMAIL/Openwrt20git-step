@@ -69,6 +69,9 @@ rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wg
 ```bash
 src-git kenzo https://github.com/kenzok8/openwrt-packages
 src-git small https://github.com/kenzok8/small
+
+
+src-git https://github.com/kenzok8/small-package
     ```
         
         备用地址
