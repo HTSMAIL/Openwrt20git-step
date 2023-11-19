@@ -12,9 +12,8 @@
 
 #改网口地址（默认网关ip）
 
-        ```bash
         vim /etc/config/network
-        ```
+        
 火力全开
 
      #一键起飞编译方法
@@ -113,7 +112,7 @@ Build dependency: OpenWrt can only be built on a case-sensitive filesystem
 对已经 git clone 完成的项目目录执行 fsutil.exe 命令无法生效，大小写敏感只对新增的文件变更有效。
 
 
-修改源
+# 修改源
 推荐下面的软件包，几乎涵盖了你需要插件
 ```vi feeds.conf.default```
 ```bash
