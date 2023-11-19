@@ -114,7 +114,9 @@ Build dependency: OpenWrt can only be built on a case-sensitive filesystem
 
 # 修改源
 推荐下面的软件包，几乎涵盖了你需要插件
-```vi feeds.conf.default```
+```bash
+vi feeds.conf.default
+```
 ```bash
 
 
