@@ -36,49 +36,96 @@ https://jq.qq.com/?_wv=1027&k=kvcPp7K8
 2. 国内用户编译前最好准备好梯子
 3. 默认登陆IP 192.168.1.1, 密码 password
 
-编译命令如下:
--
-1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64
+注意
+不要用 root 用户进行编译
+国内用户编译前最好准备好梯子
+默认登陆IP 192.168.1.1 密码 password
+编译命令
+首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS
 
-2. 命令行输入 
-
-        sudo apt-get update 
-
-然后安装依赖输入
-```
+安装编译依赖
+```bash
 sudo apt update -y
 sudo apt full-upgrade -y
 sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
 bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
 git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
 libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
-mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
-rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \
+libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \
+vim wget xmlto xxd zlib1g-dev python3-setuptools
 ```
+下载源代码，更新 feeds 并选择配置
+```bash
+git clone https://github.com/coolsnowwolf/lede
+cd lede
+./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+```
+下载 dl 库，编译固件 （-j 后面是线程数，第一次编译推荐用单线程）
+```bash
+make download -j8
+make V=s -j1
+```
+本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。
 
+你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
 
-3. 使用 `git` 命令下载好源代码，然后  进入目录
-        
-       git clone https://github.com/coolsnowwolf/lede
-       cd lede
-       vi feeds.conf.default
+二次编译：
+```bash
+cd lede
+git pull
+./scripts/feeds update -a
+./scripts/feeds install -a
+make defconfig
+make download -j8
+make V=s -j$(nproc)
+```
+如果需要重新配置：
+```bash
+rm -rf ./tmp && rm -rf .config
+make menuconfig
+make V=s -j$(nproc)
+```
+编译完成后输出路径：bin/targets
+
+如果你使用 WSL/WSL2 进行编译
+由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 make 前面加上：
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+由于默认情况下，装载到 WSL 发行版的 NTFS 格式的驱动器将不区分大小写，因此大概率在 WSL/WSL2 的编译检查中会返回以下错误：
+
+Build dependency: OpenWrt can only be built on a case-sensitive filesystem 
+一个比较简洁的解决方法是，在 git clone 前先创建 Repository 目录，并为其启用大小写敏感：
+
+# 以管理员身份打开终端
+```PS > fsutil.exe file setCaseSensitiveInfo <your_local_lede_path> enable```
+# 将本项目 git clone 到开启了大小写敏感的目录 <your_local_lede_path> 中
+```PS > git clone git@github.com:coolsnowwolf/lede.git <your_local_lede_path>```
+对已经 git clone 完成的项目目录执行 fsutil.exe 命令无法生效，大小写敏感只对新增的文件变更有效。
+
 
 修改源
 推荐下面的软件包，几乎涵盖了你需要插件
-
+```vi feeds.conf.default```
 ```bash
+
+
 src-git kenzo https://github.com/kenzok8/openwrt-packages
 src-git small https://github.com/kenzok8/small
 
 
 src-git https://github.com/kenzok8/small-package
     ```
+
+
         
         备用地址
+```bash
        src-git https://github.com/HTSMAIL/openwrt-packages
        src-git https://github.com/HTSMAIL/small
-
-        openwrt 固件编译自定义主题与软件
+```
         luci-app-openclash ——————openclash图形
         luci-app-advancedsetting ——————系统高级设置
         luci-theme-atmaterial ——————atmaterial 三合一主题（适配18.06）
@@ -94,42 +141,7 @@ src-git https://github.com/kenzok8/small-package
         luci-theme-opentomcat ——————修复主机名错误（适配18.06）
         luci-theme-opentomato ——————修复主机名错误（适配18.06）
 
-4. ```bash
-./scripts/feeds update -a
-./scripts/feeds install -a
-make menuconfig
-   ```
 
-5.下载dl库（国内请尽量全局科学上网）
-        
-    make -j8 download V=s
-    make -j1 V=s  
-6. （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
-
-本套代码保证肯定可以编译成功。里面包括了 R20 所有源代码，包括 IPK 的。
-
-
-
-二次编译：
--
-
-```bash
-cd lede
-git pull
-./scripts/feeds update -a && ./scripts/feeds install -a
-make defconfig
-make -j8 download
-make -j$(($(nproc) + 1)) V=s
-```
-
-如果需要重新配置：
-```bash
-rm -rf ./tmp && rm -rf .config && rm -rf bin
-make menuconfig
-make -j$(($(nproc) + 1)) V=s
-```
-
-编译完成后输出路径：/lede/bin/targets
 
 功能参照表
 -
@@ -148,7 +160,7 @@ https://github.com/HTSMAIL/lede
 输入 Y 选择该项目加入固件，N 不选泽，M 编译但不合入固件。
 所有项目选完后保存再退出。保存时可以重命名，但只起保存当前配置的作用，编译有效的配置文件名还是 .config。
 进入 menuconfig 第一眼感觉好复杂，不是专业的根本不知道都是啥，不过我们编译自己的固件不需要知道那么多，大多数默认设置就好了。
-
+```bash
     Target System (x86) ---> #设置CPU类型（软路由所以选择x86,硬路由根据型号厂家选择自己的cpu)
 
     Subtarget (x86_64) ---> #CPU子选项
@@ -216,9 +228,9 @@ https://github.com/HTSMAIL/lede
     Utilities ---> #设置实用程序
 
     Xorg ---> #字体配置
-
+```
   拿 EA6500 v2 路由来做例子：
-
+```bash
     Target System --> Broadcom BCM47xx/53xx(ARM)
 
     Target Profile --> Multiple devices
@@ -230,4 +242,4 @@ https://github.com/HTSMAIL/lede
 
     LuCI --> 3. Applications --> 选择需要的插件，根据路由器的 flash 大小
     --> 4. Themes --> 默认就好，有的主题体积会比较大
-
+```
