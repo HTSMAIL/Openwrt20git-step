@@ -12,8 +12,9 @@
 
 #改网口地址（默认网关ip）
 
+        ```bash
         vim /etc/config/network
-
+        ```
 火力全开
 
      #一键起飞编译方法
@@ -59,13 +60,18 @@ vim wget xmlto xxd zlib1g-dev python3-setuptools
 ```bash
 git clone https://github.com/coolsnowwolf/lede
 cd lede
-./scripts/feeds update -a
-./scripts/feeds install -a
+```
+```bash
+./scripts/feeds update -a && ./scripts/feeds install -a
+```
+```bash
 make menuconfig
 ```
 下载 dl 库，编译固件 （-j 后面是线程数，第一次编译推荐用单线程）
 ```bash
 make download -j8
+```
+```bash
 make V=s -j1
 ```
 本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。
@@ -76,10 +82,11 @@ make V=s -j1
 ```bash
 cd lede
 git pull
-./scripts/feeds update -a
-./scripts/feeds install -a
+./scripts/feeds update -a && ./scripts/feeds install -a
 make defconfig
 make download -j8
+```
+```bash
 make V=s -j$(nproc)
 ```
 如果需要重新配置：
